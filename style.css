@@ -19,26 +19,22 @@ h1 {
 }
 
 .contain {
-    padding-top: 300px;
+    padding-top: 200px;
     display: flex;
     justify-content: space-around;
     text-align: center;
 }
 
-.player-one {
-    background-color: chartreuse;
+.elements {
     width: 25%;
-    height: 50%;
 }
 
 .score {
-    background-color: chocolate;
-    width: 25%;
-    height: 50%;
+    font-size: 2rem;
+    color: white;
+    font-weight: 700;
 }
 
-.player-two {
-    background-color: cyan;
-    width: 25%;
-    height: 50%;
+img {
+    width: 50%;
 }
