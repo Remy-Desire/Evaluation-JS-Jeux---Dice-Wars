@@ -23,18 +23,45 @@ h1 {
     display: flex;
     justify-content: space-around;
     text-align: center;
+    color: white;
 }
 
 .elements {
     width: 25%;
 }
 
+.table-score {
+    width: 40%;
+}
+
+.text-result, h2 {
+    font-size: 1.5rem;
+    padding-top: 20px;
+}
+
 .score {
     font-size: 2rem;
-    color: white;
     font-weight: 700;
 }
 
 img {
     width: 50%;
+}
+
+button {
+    border: 4px solid #FFE436;
+    border-radius: 8%;
+    background-color: transparent;
+    color: white;
+    font-size: 22px;
+    font-family: 'Orbitron', sans-serif;
+    padding: 20px;
+}
+
+.launch, .end, .rules {
+    margin-top: 30px;
+}
+
+.new-game {
+    margin-top: 250px;
 }
