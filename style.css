@@ -1,0 +1,44 @@
+body {
+    padding: 0;
+    margin: 0;
+}
+
+.background {
+    background-image: url("./Img/Fond-étoilé.png");
+    width: 100vw;
+    height: 100vh;
+    font-family: 'Orbitron', sans-serif;
+}
+
+h1 {
+    margin: 0;
+    font-size: 80px;
+    color: #FFE436;
+    text-align: center;
+    padding-top: 100px;
+}
+
+.contain {
+    padding-top: 300px;
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.player-one {
+    background-color: chartreuse;
+    width: 25%;
+    height: 50%;
+}
+
+.score {
+    background-color: chocolate;
+    width: 25%;
+    height: 50%;
+}
+
+.player-two {
+    background-color: cyan;
+    width: 25%;
+    height: 50%;
+}
