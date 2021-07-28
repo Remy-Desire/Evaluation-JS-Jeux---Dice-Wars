@@ -11,17 +11,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Erica+One&family=Orbitron&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="background">
         <h1>Dice Wars</h1>
         <div class="contain">
             <div class="player-one elements">
-                <div class="dice">
-                    <img src="./Img/Dice 1.png">
+                <div class="dice" id="dice-player-one">
+                    <img src="./Img/Dice1.png">
                 </div>
                 <h2>Joueur 1</h2>
-                <button class="launch">Lancer le dés</button>
+                <button class="launch" id="launch-player-one" type="button">Lancer le dé</button>
                 <br>
-                <button class="end">Fin du tour</button>
+                <button class="end" id="end-of-player-one" >Fin du tour</button>
             </div>
             <div class="table-score">
                 <div class="score">
@@ -35,16 +34,15 @@
                 <button class="rules">Règles du jeu</button>
             </div>
             <div class="player-two elements">
-                <div class="dice">
-                    <img src="./Img/Dice 3.png">
+                <div class="dice" id="dice-player-two">
+                    <img src="./Img/Dice1.png">
                 </div>
                 <h2>Joueur 2</h2>
-                <button class="launch">Lancer le dés</button>
+                <button class="launch" id="launch-player-two">Lancer le dé</button>
                 <br>
-                <button class="end">Fin du tour</button>
+                <button class="end" id="end-of-player-two">Fin du tour</button>
             </div>
         </div>
-    </div>
 <script src="script.js"></script>
 </body>
 </html>
