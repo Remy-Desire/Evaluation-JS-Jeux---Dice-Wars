@@ -7,21 +7,23 @@ const endOfPlayerTwo = document.getElementById('end-of-player-two');
 const dicePlayerTwo = document.getElementById('dice-player-two');
 const scorePlayerOne = document.getElementById('score-player-one');
 const scorePlayerTwo = document.getElementById('score-player-two');
+const textResult = document.getElementById('text-result');
 let valueDice;
 let score1 = 0;
 let score2 = 0;
 let temp = 0;
+const limitScore = 100;
 
 //Evenement boutton Lancer Player 1
 launchPlayerOne.addEventListener('click', (e) => {
-    valueDice = randomNumber(1, 6);
+    valueDice = randomNumber(2, 6);
     changeDice(dicePlayerOne);
     disabledLaunch(valueDice, launchPlayerOne, launchPlayerTwo);
     addTempScore(valueDice);
 })
 //Evenement boutton Lancer Player 2
 launchPlayerTwo.addEventListener('click', (e) => {
-    valueDice = randomNumber(1, 6)
+    valueDice = randomNumber(2, 6)
     changeDice(dicePlayerTwo)
     disabledLaunch(valueDice, launchPlayerTwo, launchPlayerOne);
     addTempScore(valueDice);
@@ -85,12 +87,36 @@ endOfPlayerOne.addEventListener('click', (e) => {
     launchPlayerTwo.disabled = false;
     scorePlayerOne.innerHTML = score1;
     temp = 0;
+    changeTextResult();
+    console.log("Score 1: " + score1)
 })
 //Fonction fin du tour player 2
 endOfPlayerTwo.addEventListener('click', (e) => {
-    score1 += temp;
+    score2 += temp;
     launchPlayerTwo.disabled = true;
     launchPlayerOne.disabled = false;
-    scorePlayerTwo.innerHTML = score1;
+    scorePlayerTwo.innerHTML = score2;
     temp = 0;
+    changeTextResult();
+    console.log("score 2: " + score2)
 })
+
+//Fonction qui change le texte du résultat
+function changeTextResult() {
+    if(score1 === score2) {
+        textResult.innerHTML = "<p>Les deux joueurs sont à égalité</p>";
+    } else if(score1 >= limitScore) {
+        textResult.innerHTML = "<p>Le joueur 1 a gagné la partie !</p>";
+        launchPlayerOne.disabled = true;
+        launchPlayerTwo.disabled = true;
+    } else if(score2 >= limitScore) {
+        textResult.innerHTML = "<p>Le joueur 2 a gagné la partie !</p>";
+        launchPlayerOne.disabled = true;
+        launchPlayerTwo.disabled = true;
+    } else if(score1 > score2) {
+        textResult.innerHTML = "<p>Le joueur 1 est en tête !</p>";
+    } else if(score2 > score1) {
+        textResult.innerHTML = "<p>Le joueur 2 est en tête !</p>";
+    }
+}
+
