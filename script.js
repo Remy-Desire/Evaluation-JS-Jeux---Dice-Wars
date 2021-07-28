@@ -7,7 +7,10 @@ const endOfPlayerTwo = document.getElementById('end-of-player-two');
 const dicePlayerTwo = document.getElementById('dice-player-two');
 const scorePlayerOne = document.getElementById('score-player-one');
 const scorePlayerTwo = document.getElementById('score-player-two');
+const tempScore1 = document.getElementById('temp-score1');
+const tempScore2 = document.getElementById('temp-score2');
 const textResult = document.getElementById('text-result');
+const newGame = document.getElementById('new-game');
 let valueDice;
 let score1 = 0;
 let score2 = 0;
@@ -16,18 +19,18 @@ const limitScore = 100;
 
 //Evenement boutton Lancer Player 1
 launchPlayerOne.addEventListener('click', (e) => {
-    valueDice = randomNumber(2, 6);
-    changeDice(dicePlayerOne);
+    valueDice = randomNumber(1, 6);
+    changeDice(dicePlayerOne, tempScore1);
     disabledLaunch(valueDice, launchPlayerOne, launchPlayerTwo);
     addTempScore(valueDice);
-})
+}, 1000)
 //Evenement boutton Lancer Player 2
 launchPlayerTwo.addEventListener('click', (e) => {
-    valueDice = randomNumber(2, 6)
-    changeDice(dicePlayerTwo)
+    valueDice = randomNumber(1, 6)
+    changeDice(dicePlayerTwo, tempScore2)
     disabledLaunch(valueDice, launchPlayerTwo, launchPlayerOne);
     addTempScore(valueDice);
-})
+}, 1000)
 
 //Fonction générer un nombre aléatoir entre 1 et 6
 function randomNumber(min, max) {
@@ -35,25 +38,31 @@ function randomNumber(min, max) {
 }
 
 //Fonction qui change le dé
-function changeDice (element) {
+function changeDice (element, element2) {
     switch (valueDice) {
         case 1:
             element.innerHTML = "<img src='./Img/Dice1.png'>";
+            element2.innerHTML = "Passe ton tour";
             break;
         case 2:
             element.innerHTML = "<img src='./Img/Dice2.png'>";
+            element2.innerHTML = temp + valueDice;
             break;
         case 3:
             element.innerHTML = "<img src='./Img/Dice3.png'>";
+            element2.innerHTML = temp + valueDice;
             break;
         case 4:
             element.innerHTML = "<img src='./Img/Dice4.png'>";
+            element2.innerHTML = temp + valueDice;
             break;
         case 5:
             element.innerHTML = "<img src='./Img/Dice5.png'>";
+            element2.innerHTML = temp + valueDice;
             break;
         case 6:
             element.innerHTML = "<img src='./Img/Dice6.png'>";
+            element2.innerHTML = temp + valueDice;
             break;
     }
 }
@@ -88,7 +97,7 @@ endOfPlayerOne.addEventListener('click', (e) => {
     scorePlayerOne.innerHTML = score1;
     temp = 0;
     changeTextResult();
-    console.log("Score 1: " + score1)
+    tempScore1.innerHTML = temp;
 })
 //Fonction fin du tour player 2
 endOfPlayerTwo.addEventListener('click', (e) => {
@@ -98,17 +107,19 @@ endOfPlayerTwo.addEventListener('click', (e) => {
     scorePlayerTwo.innerHTML = score2;
     temp = 0;
     changeTextResult();
-    console.log("score 2: " + score2)
+    tempScore2.innerHTML = temp;
 })
 
 //Fonction qui change le texte du résultat
 function changeTextResult() {
-    if(score1 === score2) {
+    if(score1 === 0 && score2 === 0) {
+        textResult.innerHTML = "<p>Nouvelle Partie : Joueur 1 lance le dé !</p>";
+     } else if(score1 === score2) {
         textResult.innerHTML = "<p>Les deux joueurs sont à égalité</p>";
     } else if(score1 >= limitScore) {
         textResult.innerHTML = "<p>Le joueur 1 a gagné la partie !</p>";
         launchPlayerOne.disabled = true;
-        launchPlayerTwo.disabled = true;
+        launchPlayerTwo.disabled = true; 
     } else if(score2 >= limitScore) {
         textResult.innerHTML = "<p>Le joueur 2 a gagné la partie !</p>";
         launchPlayerOne.disabled = true;
@@ -120,3 +131,13 @@ function changeTextResult() {
     }
 }
 
+//Fonction qui remet a zero les score et réactive les boutons
+newGame.addEventListener('click', () => {
+    score1 = 0;
+    score2 = 0;
+    launchPlayerOne.disabled = false;
+    launchPlayerTwo.disabled = false;
+    scorePlayerOne.innerHTML = score1;
+    scorePlayerTwo.innerHTML = score2;
+    changeTextResult();
+})

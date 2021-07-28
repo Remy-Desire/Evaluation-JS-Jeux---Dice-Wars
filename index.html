@@ -18,6 +18,7 @@
                     <img src="./Img/Dice1.png">
                 </div>
                 <h2>Joueur 1</h2>
+                <div class="temp-score" id="temp-score1"></div>
                 <button class="launch" id="launch-player-one" type="button">Lancer le dé</button>
                 <br>
                 <button class="end" id="end-of-player-one" >Fin du tour</button>
@@ -27,20 +28,31 @@
                     <span class="score-player-one" id="score-player-one">0</span>  -  <span class="score-player-two" id="score-player-two">0</span>
                 </div>
                 <div class="text-result" id="text-result">
+                    <p>Joueur 1 lance le dé !</p>
                 </div>
-                <button class="new-game">Nouvelle partie</button>
+                <button class="new-game" id="new-game">Nouvelle partie</button>
                 <br>
-                <button class="rules">Règles du jeu</button>
+                <button class="rules"><a href="#rules">Règles du jeu</a></button>
             </div>
             <div class="player-two elements">
                 <div class="dice" id="dice-player-two">
                     <img src="./Img/Dice1.png">
                 </div>
                 <h2>Joueur 2</h2>
+                <div class="temp-score" id="temp-score2"></div>
                 <button class="launch" id="launch-player-two">Lancer le dé</button>
                 <br>
                 <button class="end" id="end-of-player-two">Fin du tour</button>
             </div>
+        </div>
+
+        <div class="rules" id="rules">
+            <h2>Les régles</h2>
+                <p>Les joueurs lance le dé autant de fois qu'il le souhaite</p>
+                <p>Mais attention, si le dé est de 1, il doit passez le tour à son adversaire</p>
+                <p>Le boutton Fin du tour permet d'enregistrer son score et de passer son tour</p>
+                <p>Le premier qui atteint le score de 100 à gagner la partie !</p>
+            <button><a href="#">J'ai compris, je veux jouer !</a></button>
         </div>
 <script src="script.js"></script>
 </body>
