@@ -37,9 +37,12 @@ h1 {
     width: 40%;
 }
 
+.text-result {
+    height: 100px;
+}
+
 .text-result, h2 {
     font-size: 1.5rem;
-    padding-top: 20px;
 }
 
 .score {
@@ -65,6 +68,3 @@ button {
     margin-top: 30px;
 }
 
-.new-game {
-    margin-top: 200px;
-}
