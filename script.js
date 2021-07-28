@@ -10,13 +10,15 @@ let valueDice;
 
 //Evenement boutton Lancer Player 1
 launchPlayerOne.addEventListener('click', (e) => {
-    valueDice = randomNumber(1, 6)
-    return changeDice(dicePlayerOne)
+    valueDice = randomNumber(1, 6);
+    changeDice(dicePlayerOne);
+    disabledLaunch(valueDice, launchPlayerOne);
 })
 //Evenement boutton Lancer Player 2
 launchPlayerTwo.addEventListener('click', (e) => {
     valueDice = randomNumber(1, 6)
-    return changeDice(dicePlayerTwo)
+    changeDice(dicePlayerTwo)
+    disabledLaunch(valueDice, launchPlayerTwo);
 })
 
 //Fonction générer un nombre aléatoir entre 1 et 6
@@ -45,5 +47,14 @@ function changeDice (element) {
         case 6:
             element.innerHTML = "<img src='./Img/Dice6.png'>";
             break;
+    }
+}
+
+// Fonction qui désactive le dé si = 1 
+function disabledLaunch (value, element) {
+    if(value === 1) {
+        return element.disabled = true;
+    } else {
+        return element.disabled = false;
     }
 }
